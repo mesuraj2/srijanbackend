@@ -5,16 +5,25 @@ const Connecttomongodb=require('./db')
 const Chat=require('./chat')
 const Message=require('./message')
 const Offer=require('./offer')
-
+const router=Express.Router();
 
 Connecttomongodb();
 const app = Express();
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 // app.use(cors({origin:'http://localhost:3000'}))
 
 app.use(Express.json());
 
+router.get('/',(req,res)=>{
+  res.send("it is testing working");
+})
+
+app.get('/',(req,res)=>{
+  res.send("it is working")
+})
+
+app.use('/.netlify/function',router)
 app.use("/api/auth",User);
 app.use("/api/chat",Chat)
 app.use("/api/message",Message)

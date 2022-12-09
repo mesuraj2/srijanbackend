@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
-    "build":"node index.js"
+    "start": "NODE_ENV=development ./node_module/.bin/netlify-lambda node",
+    "build": "NODE_ENV=production ./node_module/.bin/netlify-lambda node"
   },
   "keywords": [],
   "author": "",
